@@ -1,0 +1,43 @@
+data:
+  image_size: 512
+  num_workers: 6
+  pin_memory: True
+
+dataset:
+  rgb_root: "./datasets/preprocessed_imagenet_filtered_flat"
+  l_root: "./datasets/preprocessed_imagenet_L_filtered_flat"
+  train_split: "train"
+  val_split: "val"
+
+sd:
+  model_id: "runwayml/stable-diffusion-v1-5"
+
+lora:
+  rank: 8
+
+diffusion:
+  num_train_timesteps: 1000
+
+training:
+  batch_size: 40
+  lr: 0.0001
+  max_steps: 200000
+  grad_accum: 1
+  mixed_precision: "fp16"   # "no" | "fp16" | "bf16"
+  save_every: 1000
+  log_every: 50
+  seed: 1234
+
+optim:
+  weight_decay: 0.0
+  beta1: 0.9
+  beta2: 0.999
+  eps: 1.0e-8
+
+sampling:
+  method: "ddim"   # "ddpm" | "ddim"
+  num_steps: 1000
+  eta: 0.0
+  split: "val"     # which split to sample from in batch mode
+  save_gt: false   # if true, saves GT RGB too (requires rgb_root/val)
+  batch_size: 50
