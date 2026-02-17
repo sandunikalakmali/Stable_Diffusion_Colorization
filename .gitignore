@@ -1,0 +1,16 @@
+# Archives
+*.tar
+
+# Python cache
+__pycache__/
+
+# Experiment outputs
+exp/
+
+# Datasets (local / generated)
+datasets/canny_preprocess_L_filterd/
+datasets/imagenet/
+datasets/imagenet_filtered/
+datasets/imagenet_L_filtered/
+datasets/preprocessed_imagenet_filtered_flat/
+datasets/preprocessed_imagenet_L_filtered_flat/
